@@ -1,2 +1,7 @@
 Model                = PFS_morse_1mode
 Method               = qdpldm-focused
+
+System               = slurm
+Nodes                = 4
+Cpus                 = 24
+Partition            = action    
