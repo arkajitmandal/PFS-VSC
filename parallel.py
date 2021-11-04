@@ -73,6 +73,8 @@ with Pool(procs) as p:
         par.dHel0 = model.dHel0
         par.initR = model.initR
         par.Hel   = model.Hel
+        par.dµ    = model.dµ
+        par.Snm   = model.Snm
         if method_[0]=="nrpmd":
             par.initHel0 = model.initHel0
         par.stype = stype
@@ -88,18 +90,19 @@ with Pool(procs) as p:
 rho_sum = np.zeros(rho_ensemble[0].shape, dtype = rho_ensemble[0].dtype)
 for i in range(procs):
     for t in range(rho_ensemble[0].shape[-1]):
-        rho_sum[:,:,t] += rho_ensemble[i][:,:,t]
+        rho_sum[:,t] += rho_ensemble[i][:,t]
 
-try:    
-    PiiFile = open(f"{fold}/{method_[0]}-{method_[1]}-{model_}.txt","w") 
-except:
-    PiiFile = open(f"{fold}/{method_[0]}-{model_}.txt","w") 
+par = model.parameters() 
+
+ 
+PiiFile = open(f"{fold}/ωc{int(par.ωc*27.2114*100)}-χ{int(par.χ/par.ωc)}.txt","w") 
+
  
 NTraj = model.parameters().NTraj
 for t in range(rho_ensemble[0].shape[-1]):
     PiiFile.write(f"{t * model.parameters.nskip * model.parameters.dtN} \t")
-    for i in range(NStates):
-        PiiFile.write(str(rho_sum[i,i,t].real / (  procs * NTraj ) ) + "\t")
+    for i in range(2):
+        PiiFile.write(str(rho_sum[i,t].real / (  procs * NTraj ) ) + "\t")
     PiiFile.write("\n")
 PiiFile.close()
 t2 = time.time()-t1
