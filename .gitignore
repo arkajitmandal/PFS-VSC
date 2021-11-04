@@ -1,3 +1,4 @@
-.txt
-.react
-.pyc
+*.txt
+*.react
+*.pyc
+*.R
