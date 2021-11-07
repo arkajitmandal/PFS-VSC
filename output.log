@@ -1,0 +1,12 @@
+Total Number of Trajectories = 96000
+Trajectories per CPU         = 1000
+Using 4 Nodes each with 24 CPUs
+--------------------------------------------------
+Reading input.txt
+Folder: RUN/run-1
+Reading input.txt
+Folder: RUN/run-0
+Reading input.txt
+Folder: RUN/run-2
+Reading input.txt
+Folder: RUN/run-3

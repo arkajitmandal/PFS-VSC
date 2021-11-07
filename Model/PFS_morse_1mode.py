@@ -15,7 +15,7 @@ def ĉ(nf):
 class parameters():
    dtN = 15.0
    NSteps = int(12000/dtN)
-   NTraj = 10000
+   NTraj = 1000
    
    
    NStates = 10

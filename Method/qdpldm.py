@@ -235,7 +235,7 @@ def runTraj(parameters):
                 initState = i
                 break
         Ψ[initState] += 1
-        print (f"|Ψ> = |{initState}> | Traj: {itraj}")
+        #print (f"|Ψ> = |{initState}> | Traj: {itraj}")
 
         # Trajectory data
         dat = Bunch(param =  parameters )
@@ -272,6 +272,6 @@ def runTraj(parameters):
     print (f"ρE (theory)     = {ρE}")
     print (f"ρE (simulation) = {Ψ/np.sum(Ψ)}")   
 
-    return rho_ensemble, R_ensemble, reaction
+    return reaction#rho_ensemble, R_ensemble, reaction
  
 
