@@ -23,7 +23,7 @@ class parameters():
    nskip = 1
    ndof = 1
    
-   ωc   = 0.05/27.2114
+   ωc   = 0.075/27.2114
    
    
    β = 1052.59 #beta for sampling (here 300K)
